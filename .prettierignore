@@ -1,0 +1,7 @@
+node_modules
+*.md
+*.json
+*.html
+.eslintrc
+.prettierrc
+README.md
