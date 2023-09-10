@@ -72,5 +72,8 @@
       "prettier --write",
       "eslint --fix"
     ]
+  },
+  "msw": {
+    "workerDirectory": "public"
   }
 }
