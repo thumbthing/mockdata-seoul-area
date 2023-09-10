@@ -6,7 +6,7 @@ const useErrorHandler = async (error: Error | unknown) => {
     if (error instanceof Error) {
       setMessage(error.message);
     }
-  }, [message]);
+  }, [error]);
   return message;
 };
 
