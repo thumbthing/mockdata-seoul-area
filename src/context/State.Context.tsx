@@ -5,11 +5,10 @@ const defaultState: StateType = {
   GraphData: [],
   SelectedDataKey: '',
   SelectedDataValue: {
-    key: {
-      id: '',
-      value_area: 0,
-      value_bar: 0,
-    },
+    timestamp: '',
+    id: '',
+    value_area: 0,
+    value_bar: 0,
   },
 };
 
