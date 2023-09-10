@@ -1,4 +1,4 @@
-import useErrorHandler from '../hooks/useErrorHandler';
+import errorHandler from '../utils/errorHandler';
 import httpInstance from './httpInstance';
 
 const getData = async () => {
@@ -9,7 +9,7 @@ const getData = async () => {
     }
     return response;
   } catch (error) {
-    useErrorHandler(error);
+    errorHandler(error);
     return null;
   }
 };
