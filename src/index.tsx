@@ -22,7 +22,7 @@ async function main() {
     import('./mocks/browser').then((worker) => {
       worker.default.start({
         serviceWorker: {
-          url: '/graph/mockServiceWorker.js',
+          url: '/mockServiceWorker.js',
         },
       });
     });
@@ -33,13 +33,13 @@ async function main() {
 const root = ReactDOM.createRoot(document.getElementById('root') as HTMLElement);
 
 prepare()
+  .then(() => main())
   .then(() => {
     root.render(
       <React.StrictMode>
         <App />
       </React.StrictMode>,
     );
-  })
-  .then(() => main());
+  });
 
 reportWebVitals();
