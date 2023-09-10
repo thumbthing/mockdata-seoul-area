@@ -6,5 +6,5 @@ export interface serviceType {
   /* eslint-disable no-unused-vars */
   dataParser: (rawData: Record<string, GraphDataType>) => GraphDataType[];
   /* eslint-disable no-unused-vars */
-  getFiltedData: (data: GraphDataType[]) => GraphDataType[];
+  getFilteredData: (data: GraphDataType[]) => GraphDataType[];
 }
