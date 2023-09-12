@@ -22,11 +22,11 @@ function AxisBar({ axisLabel }: AxisBarType) {
   };
   const bar: labelType = {
     id: 'bar',
-    first: 20000,
-    second: 18000,
-    third: 16000,
-    fourth: 14000,
-    fifth: 12000,
+    first: 19000,
+    second: 16000,
+    third: 13000,
+    fourth: 10000,
+    fifth: 7000,
   };
 
   const axisBar: labelType = axisLabel === 'area' ? area : bar;

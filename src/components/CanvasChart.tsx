@@ -1,6 +1,7 @@
 import React, { useState, useEffect, useRef } from 'react';
 import { MockContext } from '../context/State.Context';
 import { GraphDataType } from '../types/state.type';
+import { AreaGraph, CanvasContainer } from '../styles/Canvas.style';
 
 interface DataPoint {
   x: number;
@@ -62,14 +63,14 @@ function Canvas() {
 
     ctx.closePath();
 
-    ctx.fillStyle = 'rgba(0, 128, 255, 0.5)';
+    ctx.fillStyle = 'lightgreen';
     ctx.fill();
   }, [data]);
 
   return (
-    <div>
-      <canvas ref={canvasRef} width={1250} height={400} style={{ border: '1px solid black' }} />
-    </div>
+    <CanvasContainer>
+      <AreaGraph ref={canvasRef} width={1000} height={400} style={{ border: '1px solid black' }} />
+    </CanvasContainer>
   );
 }
 

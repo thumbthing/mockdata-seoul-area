@@ -38,12 +38,12 @@ function GraphPage() {
         </button>
       </div>
       <Container>
+        <AxisBar axisLabel="bar" />
         <GraphBox>
-          <AxisBar axisLabel="bar" />
           <ValueList />
-          <AxisBar axisLabel="area" />
+          <Canvas />
         </GraphBox>
-        <Canvas />
+        <AxisBar axisLabel="area" />
       </Container>
     </>
   );
