@@ -24,6 +24,18 @@ function ValueBar({ index }: ValueBarProps) {
     setState((prevState) => ({ ...prevState, SelectedDataKey: hoverdItemId }));
   };
 
+  const insertDataValue = () => {
+    setState((prevState) => ({
+      ...prevState,
+      SelectedDataValue: {
+        timestamp: singleData.timestamp,
+        id: singleData.id,
+        value_area: singleData.value_area,
+        value_bar: singleData.value_bar,
+      },
+    }));
+  };
+
   const handleMouseLeave = () => {
     setState((prevState) => ({ ...prevState, SelectedDataKey: '' }));
   };
@@ -34,7 +46,7 @@ function ValueBar({ index }: ValueBarProps) {
       ishovered={isHovered}
       onMouseEnter={() => insertDatakey(singleData.id)}
       onMouseLeave={() => handleMouseLeave()}
-      onClick={() => insertDatakey(singleData.id)}
+      onClick={() => insertDataValue()}
     />
   );
 }
