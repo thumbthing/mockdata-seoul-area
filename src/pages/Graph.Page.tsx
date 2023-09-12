@@ -3,8 +3,9 @@ import { MockContext } from '../context/State.Context';
 import { FunctionContext } from '../context/Service.context';
 import errorHandler from '../utils/errorHandler';
 import ValueList from '../components/ValueList';
-import Canvas from '../components/Canvas';
-import Container from '../styles/Container.style';
+import Canvas from '../components/CanvasChart';
+import { Container, GraphBox } from '../styles/Container.style';
+import AxisBar from '../components/AxisBar';
 
 function GraphPage() {
   const { state, setState } = MockContext();
@@ -41,7 +42,11 @@ function GraphPage() {
         </button>
       </div>
       <Container>
-        <ValueList />
+        <GraphBox>
+          <AxisBar axisLabel="bar" />
+          <ValueList />
+          <AxisBar axisLabel="area" />
+        </GraphBox>
         <Canvas />
       </Container>
     </>
