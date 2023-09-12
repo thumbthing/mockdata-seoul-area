@@ -7,7 +7,7 @@ const Bar = styled.div<{ height: number }>`
   height: ${(props) => (props.height ? `${props.height}px` : 0)};
   border: 1px solid white;
   background-color: grey;
-  margin: 1px;
+  margin: 0.25px;
 `;
 
 interface ValueBarProps {

@@ -3,6 +3,8 @@ import { MockContext } from '../context/State.Context';
 import { FunctionContext } from '../context/Service.context';
 import errorHandler from '../utils/errorHandler';
 import ValueList from '../components/ValueList';
+import Canvas from '../components/Canvas';
+import Container from '../styles/Container.style';
 
 function GraphPage() {
   const { state, setState } = MockContext();
@@ -30,17 +32,6 @@ function GraphPage() {
     }
   }, [GraphData]);
 
-  // 확인용 콘솔 log
-
-  // useEffect(() => {
-  //   console.log('GraphDate : ', GraphData);
-  //   console.log('SelectedDataKey : ', SelectedDataKey);
-  //   console.log('SelectedValue : ', SelectedDataValue);
-  //   console.log('fn : 1 ', getData);
-  //   console.log('fn : 2 ', dataParser);
-  //   console.log('fn : 3 ', getFilteredData);
-  // }, []);
-
   useEffect(() => {
     console.log('GraphData from mock : ', GraphData);
   }, [GraphData]);
@@ -53,7 +44,10 @@ function GraphPage() {
           get data
         </button>
       </div>
-      <ValueList />
+      <Container>
+        <ValueList />
+        <Canvas />
+      </Container>
     </>
   );
 }

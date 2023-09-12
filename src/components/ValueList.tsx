@@ -5,6 +5,9 @@ import ValueBar from './ValueBar';
 
 const GraphList = styled.ul`
   flex-direction: column-reverse;
+  padding: 1px;
+  align-items: center;
+  width: 1250px;
 `;
 
 const SingleItem = styled.li`
@@ -28,10 +31,7 @@ function ValueList() {
 
   return (
     <div>
-      <h2>Mock Data Graph</h2>
-      <div>
-        <GraphList>{createdList}</GraphList>
-      </div>
+      <GraphList>{createdList}</GraphList>
     </div>
   );
 }
