@@ -5,8 +5,8 @@ export const AxisBarContainer = styled.div`
   flex-direction: row;
 `;
 
-export const LabelValue = styled.div<{ styleLabel: string }>`
+export const LabelValue = styled.div<{ stylelabel: string }>`
   display: flex;
-  flex-direction: ${(props) => (props.styleLabel === 'bar' ? 'column' : 'column-reverse')};
+  flex-direction: ${(props) => (props.stylelabel === 'bar' ? 'column' : 'column-reverse')};
   justify-content: space-between;
 `;

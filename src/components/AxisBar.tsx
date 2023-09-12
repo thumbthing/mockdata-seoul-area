@@ -32,7 +32,7 @@ function AxisBar({ axisLabel }: AxisBarType) {
   const axisBar: labelType = axisLabel === 'area' ? area : bar;
 
   const AxisValue = (
-    <LabelValue styleLabel={axisBar.id}>
+    <LabelValue stylelabel={axisBar.id}>
       <h6>{axisBar.first}</h6>
       <h6>{axisBar.second}</h6>
       <h6>{axisBar.third}</h6>
