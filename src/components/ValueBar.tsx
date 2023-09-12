@@ -2,11 +2,11 @@ import React from 'react';
 import styled from 'styled-components';
 import { MockContext } from '../context/State.Context';
 
-const Bar = styled.div<{ height: number }>`
+const Bar = styled.div<{ height: number; isHovered: boolean }>`
   width: 10px;
   height: ${(props) => (props.height ? `${props.height}px` : 0)};
   border: 1px solid white;
-  background-color: grey;
+  background-color: ${(props) => (props.isHovered ? `black` : 'grey')};
   margin: 0.25px;
 `;
 
@@ -15,17 +15,35 @@ interface ValueBarProps {
 }
 
 function ValueBar({ index }: ValueBarProps) {
-  const { state } = MockContext();
-  const { GraphData } = state;
+  const { state, setState } = MockContext();
+  const { GraphData, SelectedDataKey } = state;
 
   const singleData = GraphData[index];
   const caculateHeight = (valueBar: number) => {
     const height = Math.round(valueBar / 50);
     return height;
   };
+
   const height = caculateHeight(singleData.value_bar);
 
-  return <Bar height={height}> </Bar>;
+  const isHovered = singleData.id === SelectedDataKey;
+
+  const handleMouseEnter = (hoverdItemId: string) => {
+    setState((prevState) => ({ ...prevState, SelectedDataKey: hoverdItemId }));
+  };
+
+  const handleMouseLeave = () => {
+    setState((prevState) => ({ ...prevState, SelectedDataKey: '' }));
+  };
+
+  return (
+    <Bar
+      height={height}
+      isHovered={isHovered}
+      onMouseEnter={() => handleMouseEnter(singleData.id)}
+      onMouseLeave={() => handleMouseLeave}
+    />
+  );
 }
 
 export default ValueBar;
