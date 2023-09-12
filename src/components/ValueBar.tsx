@@ -1,7 +1,8 @@
-import React from 'react';
+import React, { useState } from 'react';
 import Bar from '../styles/ValueBar.style';
 import { MockContext } from '../context/State.Context';
 import DetailBarInformation from './DetailBarInformation';
+import MouseLocationType from '../types/mouseLocation.type';
 
 interface ValueBarProps {
   index: number;
@@ -10,10 +11,11 @@ interface ValueBarProps {
 function ValueBar({ index }: ValueBarProps) {
   const { state, setState } = MockContext();
   const { GraphData, SelectedDataKey, SelectedDataValue } = state;
+  const [mouseLocation, setMouseLocation] = useState<MouseLocationType | null>(null);
 
   const singleData = GraphData[index];
   const caculateHeight = (valueBar: number) => {
-    const height = Math.round(valueBar / 50);
+    const height = Math.round(valueBar / 75);
     return height;
   };
 
@@ -37,6 +39,12 @@ function ValueBar({ index }: ValueBarProps) {
     }));
   };
 
+  const recieveMouseLocation = (e: React.MouseEvent<HTMLDivElement, MouseEvent>) => {
+    const x = e.clientX;
+    const y = e.clientY;
+    setMouseLocation({ x, y });
+  };
+
   const handleMouseLeave = () => {
     setState((prevState) => ({ ...prevState, SelectedDataKey: '' }));
   };
@@ -50,9 +58,12 @@ function ValueBar({ index }: ValueBarProps) {
         ishovered={isHovered}
         onMouseEnter={() => insertDatakey(singleData.id)}
         onMouseLeave={() => handleMouseLeave()}
-        onClick={() => insertDataValue()}
+        onClick={(e: React.MouseEvent<HTMLDivElement, MouseEvent>) => {
+          insertDataValue();
+          recieveMouseLocation(e);
+        }}
       />
-      {isSelectedData && <DetailBarInformation />}
+      {isSelectedData && <DetailBarInformation mouselocation={mouseLocation} />}
     </>
   );
 }
