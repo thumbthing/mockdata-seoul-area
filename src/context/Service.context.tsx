@@ -1,12 +1,10 @@
 import React, { ReactNode, createContext, useContext } from 'react';
-import getData from '../api/apiService';
-import dataParser from '../utils/dataParser';
+import requestData from '../service/getData';
 import getFilteredData from '../utils/filterData';
 import { serviceType } from '../types/service.type';
 
 const defaultFunction: serviceType = {
-  getData,
-  dataParser,
+  requestData,
   getFilteredData,
 };
 
