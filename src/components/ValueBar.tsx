@@ -28,7 +28,7 @@ function ValueBar({ index }: ValueBarProps) {
 
   const isHovered = singleData.id === SelectedDataKey;
 
-  const handleMouseEnter = (hoverdItemId: string) => {
+  const insertDatakey = (hoverdItemId: string) => {
     setState((prevState) => ({ ...prevState, SelectedDataKey: hoverdItemId }));
   };
 
@@ -40,8 +40,9 @@ function ValueBar({ index }: ValueBarProps) {
     <Bar
       height={height}
       isHovered={isHovered}
-      onMouseEnter={() => handleMouseEnter(singleData.id)}
-      onMouseLeave={() => handleMouseLeave}
+      onMouseEnter={() => insertDatakey(singleData.id)}
+      onMouseLeave={() => handleMouseLeave()}
+      onClick={() => insertDatakey(singleData.id)}
     />
   );
 }
