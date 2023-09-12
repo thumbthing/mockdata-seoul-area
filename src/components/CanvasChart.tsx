@@ -1,5 +1,6 @@
 import React, { useState, useEffect, useRef } from 'react';
 import { MockContext } from '../context/State.Context';
+import { GraphDataType } from '../types/state.type';
 
 interface DataPoint {
   x: number;
@@ -13,25 +14,16 @@ function Canvas() {
   const { GraphData } = state;
 
   useEffect(() => {
-    const createCoordinate = () => {
-      const xyArray: DataPoint[] = [];
-      const lenghtOfData = GraphData.length;
+    const createCoordinate = (graphdata: GraphDataType[]) => {
+      const canvasCoordinates: DataPoint[] = graphdata.map((item, index) => ({ x: index, y: item.value_area / 100 }));
 
-      for (let i = 0; i < lenghtOfData; i += 1) {
-        const x = i;
-        const y = Math.sin(GraphData[i].value_area / 100);
-
-        xyArray.push({ x, y });
-      }
-
-      return xyArray;
+      return canvasCoordinates;
     };
 
     if (GraphData) {
-      const newData = createCoordinate();
-      console.log(newData);
+      const newCoordinates = createCoordinate(GraphData);
 
-      setData(newData);
+      setData(newCoordinates);
     }
   }, [GraphData]);
 
