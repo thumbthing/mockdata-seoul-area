@@ -11,11 +11,11 @@ function DetailBarInformation({ mouselocation }: DetailBarInformationProps) {
   const { state } = MockContext();
   const { SelectedDataValue } = state;
 
-  const mouseX = mouselocation?.x || 0;
-  const mouseY = mouselocation?.y || 0;
+  const x = mouselocation?.x || 0;
+  const y = mouselocation?.y || 0;
 
   return (
-    <DetailBox mouseX={mouseX} mouseY={mouseY}>
+    <DetailBox x={x} y={y}>
       <DetailText>Data : {SelectedDataValue.timestamp}</DetailText>
       <DetailText>area : {SelectedDataValue.id}</DetailText>
       <DetailText>Value 1 : {SelectedDataValue.value_bar}</DetailText>

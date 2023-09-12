@@ -1,12 +1,12 @@
 import styled from 'styled-components';
 
-export const DetailBox = styled.div<{ mouseX: number; mouseY: number }>`
+export const DetailBox = styled.div<{ x: number; y: number }>`
   display: flex;
   flex-direction: column;
   justify-content: flex-start;
   z-index: 0;
-  top: ${({ mouseY }) => mouseY}px;
-  left: ${({ mouseX }) => mouseX}px;
+  top: ${({ x }) => x}px;
+  left: ${({ y }) => y}px;
   position: absolute;
   background-color: white;
   border: 0.2px solid;
