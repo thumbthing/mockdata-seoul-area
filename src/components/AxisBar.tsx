@@ -42,8 +42,8 @@ function AxisBar({ axisLabel }: AxisBarType) {
   );
 
   const AxisLine = (
-    <svg width="10" height="500">
-      <rect width="1" height="500" fill="black" />
+    <svg width="2">
+      <rect width="2" fill="black" />
     </svg>
   );
 
