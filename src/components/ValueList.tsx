@@ -1,19 +1,7 @@
 import React from 'react';
-import styled from 'styled-components';
 import { MockContext } from '../context/State.Context';
 import ValueBar from './ValueBar';
-
-const GraphList = styled.ul`
-  flex-direction: column-reverse;
-  padding: 1px;
-  align-items: center;
-  width: 1250px;
-`;
-
-const SingleItem = styled.li`
-  list-style: none;
-  display: inline-flex;
-`;
+import { GraphBarContainer, GraphList, SingleItem } from '../styles/ValueList.style';
 
 function ValueList() {
   const { state } = MockContext();
@@ -30,9 +18,9 @@ function ValueList() {
   const createdList = List();
 
   return (
-    <div>
+    <GraphBarContainer>
       <GraphList>{createdList}</GraphList>
-    </div>
+    </GraphBarContainer>
   );
 }
 
