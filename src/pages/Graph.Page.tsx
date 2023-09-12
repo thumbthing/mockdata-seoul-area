@@ -32,10 +32,6 @@ function GraphPage() {
     }
   }, [GraphData]);
 
-  useEffect(() => {
-    console.log('GraphData from mock : ', GraphData);
-  }, [GraphData]);
-
   return (
     <>
       <div>GraphPage</div>
