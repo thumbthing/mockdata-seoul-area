@@ -46,22 +46,20 @@ function GraphPage() {
     }
   }, [GraphData]);
 
-  return (
+  const renderControl = isLoading ? (
+    <Spinner />
+  ) : (
     <Container>
-      {isLoading ? (
-        <Spinner />
-      ) : (
-        <>
-          <AxisBar axisLabel="bar" />
-          <GraphBox>
-            <ValueList />
-            <Canvas />
-          </GraphBox>
-          <AxisBar axisLabel="area" />
-        </>
-      )}
+      <AxisBar axisLabel="bar" />
+      <GraphBox>
+        <ValueList />
+        <Canvas />
+      </GraphBox>
+      <AxisBar axisLabel="area" />
     </Container>
   );
+
+  return renderControl;
 }
 
 export default GraphPage;

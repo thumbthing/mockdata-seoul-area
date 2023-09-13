@@ -5,8 +5,8 @@ export const DetailBox = styled.div<{ x: number; y: number }>`
   flex-direction: column;
   justify-content: flex-start;
   z-index: 0;
-  top: ${({ x }) => x}px;
-  left: ${({ y }) => y}px;
+  top: ${({ y }) => y}px;
+  left: ${({ x }) => x}px;
   position: absolute;
   background-color: white;
   border: 0.2px solid;
