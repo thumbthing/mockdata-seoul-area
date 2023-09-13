@@ -47,9 +47,10 @@ function ValueBar({ index }: ValueBarProps) {
 
   const handleMouseLeave = () => {
     setState((prevState) => ({ ...prevState, SelectedDataKey: '' }));
+    setMouseLocation(null);
   };
 
-  const isSelectedData = SelectedDataValue && SelectedDataValue.timestamp === singleData.timestamp;
+  const isSelectedData = SelectedDataValue && SelectedDataValue.timestamp === singleData.timestamp && mouseLocation;
 
   return (
     <>
