@@ -1,6 +1,7 @@
 import axios from 'axios';
 
-const SERVER_URL = 'http://localhost:4000';
+const SERVER_URL = window.location.origin;
+
 const DEFAULT_PARMAS = {};
 
 const baseHeader = {

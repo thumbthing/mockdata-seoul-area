@@ -4,10 +4,8 @@ import mockData from '../mocks/mockData.json';
 
 export const getMockData = async () => {
   try {
-    const response = await httpInstance.get('/graph_mockdata');
-    if (response?.status !== 200) {
-      throw new Error('fail to get data from server.....');
-    }
+    const response = await httpInstance.get('/graph');
+
     return response;
   } catch (error) {
     errorHandler(error);
